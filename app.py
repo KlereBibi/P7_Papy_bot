@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request
 from models.entities.inputparser import InputParser
 
-
 app = Flask(__name__)
 
 intpars = InputParser()

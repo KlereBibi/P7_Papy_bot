@@ -1,7 +1,6 @@
 import unicodedata
 from settings.setting import STOPWORDS
 
-
 class InputParser:
     
     def parser(self, user_choice):
