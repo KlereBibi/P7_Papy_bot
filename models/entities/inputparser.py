@@ -33,6 +33,3 @@ class InputParser:
         
         return imp_words
     
-inputparser = InputParser()
-user_choice = "Bonjoùr grAnd py, je cherché la rue de paradis à paris."
-inputparser.parser(user_choice)
