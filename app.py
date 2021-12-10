@@ -8,12 +8,11 @@ intpars = InputParser()
 @app.route('/', methods=['GET', 'POST'])
 def home():
     if request.method == 'GET':
-        return 'pouet'
+        pass
     else:
         var = request.form['query_user']
         words = intpars.parser(var)
         return words
-    
     
 @app.errorhandler(404)
 def page_not_found(error):
@@ -21,5 +20,3 @@ def page_not_found(error):
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
-
-
