@@ -1,4 +1,10 @@
 import unicodedata
+import sys
+import os
+
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.dirname(SCRIPT_DIR))
+
 from settings.setting import STOPWORDS
 
 class InputParser:
@@ -15,13 +21,9 @@ class InputParser:
                 
         str_word = ' '.join(searched_word)
         
-        word_no_acc = unicodedata.normalize('NFKD', inp_low).encode('ASCII', 'ignore').decode('ascii')
+        words_simp = unicodedata.normalize('NFKD', inp_low).encode('ASCII', 'ignore').decode('ascii')
         
-        pars = word_no_acc.split(" ")
+        pars = words_simp.split(" ")
         
         print(pars)
-        
-  
-inputparser = InputParser()
-user_choice = "Bonjour grand py, je cherche la rue de paradis à paris."
-inputparser.parser(user_choice)
+
