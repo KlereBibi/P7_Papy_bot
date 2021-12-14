@@ -36,7 +36,7 @@ class InputParser:
                                          ('NFKD', element.lower())
                                          .encode('ASCII', 'ignore')
                                          .decode('ascii'))
-        print(searched_word)
+                    
         imp_words = ' '.join(searched_word)
         
         return imp_words

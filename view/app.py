@@ -8,7 +8,7 @@ sys.path.append(os.path.dirname(SCRIPT_DIR))
 
 from models.entities.inputparser import InputParser
 
-app = Flask(__name__)
+app=Flask(__name__)
 
 intpars = InputParser()
 
