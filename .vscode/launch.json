@@ -5,6 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "main",
+            "type": "python",
+            "request": "launch",
+            "program": "c:/Users/klere/Documents/open classroom/P7/script/main.py",
+            "console": "integratedTerminal"
+        },
+        {
             "name": "Python : Fichier actuel",
             "type": "python",
             "request": "launch",
