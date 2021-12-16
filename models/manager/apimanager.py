@@ -29,7 +29,7 @@ class ApiManager:
         search = ((read["query"])["pages"]).values()
         for element in search: 
             resume = element['extract']
-
+        print(resume)
         return resume
 
         
