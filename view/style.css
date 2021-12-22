@@ -1,0 +1,23 @@
+#back{background-color:rgb(176, 217, 241)}
+
+#titre{text-align:center;}
+
+h2{font-family:'Trebuchet MS', 'Lucida Sans Unicode', cursive;}
+
+#description{font-family:cursive;}
+
+fieldset{
+        background-color: cornflowerblue;
+        width: 200px;
+        position : relative;
+        left: 500px;
+        top: 200px
+        }
+
+#footer{   
+        position: absolute; 
+        bottom: 5px;
+        width: 100%;
+        text-align: center;
+        font-family:'Times New Roman', Times, serif ;
+        }
