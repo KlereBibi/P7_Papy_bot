@@ -1,23 +1,60 @@
-#back{background-color:rgb(176, 217, 241)}
+#back { background-color:rgb(176, 217, 241) }
 
-#titre{text-align:center;}
+#présentation { text-align:center;
+                margin-bottom: 3%
+}
 
-h2{font-family:'Trebuchet MS', 'Lucida Sans Unicode', cursive;}
+h2 { font-family:'Trebuchet MS', 'Lucida Sans Unicode', cursive; }
 
-#description{font-family:cursive;}
+#description { font-family:cursive; }
 
-fieldset{
-        background-color: cornflowerblue;
-        width: 200px;
-        position : relative;
-        left: 500px;
-        top: 200px
-        }
+#conteneur{     display: flex;
+                flex-direction: column;
+                margin-left: auto;
+                width: 55%;
+                margin-bottom: 5%;
+}
 
-#footer{   
-        position: absolute; 
-        bottom: 5px;
-        width: 100%;
-        text-align: center;
-        font-family:'Times New Roman', Times, serif ;
-        }
+.user{  display: flex;
+        justify-content:flex-start;
+        text-align: start;
+        background-color:rgb(164, 223, 164);
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        width: 70%;
+        margin-bottom: 1%;
+        margin: 1%;
+        padding: 1%;
+}
+
+.papy{  display: flex;
+        align-self: flex-end;
+        text-align: end;
+        font-style: italic;
+        justify-content: end;
+        background-color:rgb(182, 179, 179);
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        width: 70%;
+        margin-bottom: 1%;
+        margin: 1%;
+        padding: 1%;
+}
+
+.picture {      display: flex;
+                align-self: flex-end;
+                justify-content: center;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                font-style: italic;
+                width: 50%;
+                margin-bottom: 1%;
+}
+
+fieldset {      background-color: cornflowerblue;
+                margin: auto;
+                width: 30%;
+                text-align: center;
+                font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+footer {        text-align: center;
+                font-family: Calibri, sans-serif ;
+}

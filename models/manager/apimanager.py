@@ -13,15 +13,15 @@ class ApiManager:
 
     """class to manage all API"""
     
-    def apistreet(self, cit, stat):
+    def apistreet(self, pars):
 
         """method to search with API openmapqest latitude and longitude
         args :
         city(str) : name of city 
         states(str) : name of states
-        return (objet): latitude and longitude"""
+        return (Coord): latitude and longitude"""
 
-        res = requests.get("http://open.mapquestapi.com/nominatim/v1/search.php?key=F3SzABt6KmK3CyhsZPFa96ucMZ3APqGT&format=json&city={}&state={}".format(cit, stat))
+        res = requests.get("http://open.mapquestapi.com/nominatim/v1/search.php?q={}&key=F3SzABt6KmK3CyhsZPFa96ucMZ3APqGT&format=json".format(pars))
         read = json.loads(res.text)
         first_choice = read[0]
         place = Coord(first_choice['lat'], first_choice['lon'])
@@ -53,7 +53,6 @@ class ApiManager:
         search = ((read["query"])["pages"]).values()
         for element in search: 
             resume = element['extract']
-        print(resume)
         return resume
 
         

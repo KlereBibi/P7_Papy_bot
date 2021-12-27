@@ -3,45 +3,44 @@
 <html lang="fr">
 
 <head>
-
     <title>GrandPy Bot</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name ="description" content="Trouver l'adresser d'un lieu accompagné d'une histoire de GrandPy">
     <link rel="stylesheet" href="style.css">
-    <body id='back'></body>
-
-    <div id="titre">
+    
+</head>
+<body id='back'>
+    <div id="présentation">
         <h2>GrandPy Bot </h2> 
         <p id='description'>Le conteur d'histoire</p>
         <img src="settings/robot.jpg" alt="logo PapyBot" height="100">
     </div>
-</head>
-
-<body>
-    <div>
-        <form action="">
-            <fieldset>
-                <label for="adresse">Pose une question sur un lieu à GrandPy:  <br></label>
-                <input type="text" id="adresse" size="50" minlength="5"><br>
-                <input type="submit">
-                <input type="reset">
-            </fieldset>
-        </form>
+    <div id="conteneur">
+        <div class="user"> Bonjour grand Papy Bot, je cherche la Tour Eiffel. Peux tu m'aider?</div>
+        <div class="papy">Biensûr, la tour Eiffel se trouve sur les champs de Mars au 5, avenue Anatole-France à Paris.</div>
+        <div class="picture"><img src = "settings/tour_eiffel.jpg" alt="endroit" height="150"></div>
+        <div class="papy"> Savais tu que la tour Eiffel est une tour de fer puddlé de 324 mètres de hauteur? C'est incroyable.</div>
+        <div class="papy"><p>Pour en savoir d'avantage, tu peux te rendre sur le site  de <a href="https://fr.wikipedia.org/wiki/"> Wikipedia</a></p></div>
+        <div class="user">Merci ! T'es un chouette type ! </div>
     </div>
-
-    <div id=footer>
-        <p id='papy'>
-            Vous aimez mon PaPy Bot? <br>
-            Pour en savoir plus, rendez vous sur <a href="https://github.com/KlereBibi/P7_Papy_bot">Git Hub</a>
-        </p>
-        <p id='ref'>
-            <a href="https://www.linkedin.com/in/claire-biedermann-b21671166/">Claire Biedermann</a><br>
-            Toujours là pour vous divertir
-        </p>
-    </div>
-
+    <form action="">
+        <fieldset>
+            <label for="adresse">Pose une question sur un lieu à GrandPy: <br></label>
+            <input type="text" id="adresse" size="50" minlength="5"><br>
+            <input type="submit">
+            <input type="reset">
+        </fieldset>
+    </form>
+<footer>
+    <p id='papy'>
+        Vous aimez mon PaPy Bot? <br>
+        Pour en savoir plus, rendez vous sur <a href="https://github.com/KlereBibi/P7_Papy_bot">Git Hub</a>
+    </p>
+    <p id='ref'>
+        <a href="https://www.linkedin.com/in/claire-biedermann-b21671166/">Claire Biedermann</a>, toujours là pour vous divertir
+    </p>
+</footer>
 </body>
-
 </html>
