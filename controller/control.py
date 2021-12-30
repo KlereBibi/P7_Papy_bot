@@ -9,16 +9,40 @@ from models.entities.inputparser import InputParser
 
 class Control: 
     
+    """class to coordinate the application"""
 
-    def ask_api(self):
+    def __init__(self):
 
-        apimanager = ApiManager()
-        inputparser = InputParser()
+        """methode ti initialize many class"""
+
+        self.apimanager = ApiManager()
+        self.inputparser = InputParser()
+
+    def user_question(self):
+
+        """methode to pars the user question 
+        return (str): the essential question"""
+
         user_question = "tour eiffel"
-        pars = inputparser.parser(user_question)
-        geolo = apimanager.apistreet(pars)
-        print(geolo.latitude, geolo.longitude)
-        title_art = apimanager.search_name(geolo.latitude, geolo.longitude)
-        content_art = apimanager.search_art(title_art)
-        print(content_art)
+        pars = self.inputparser.parser(user_question)
+        return pars
+    
+    def search_geolo(self):
+
+        """methode to search the coordonate
+        return object with latitude and longitude"""
+        
+        geolo = self.apimanager.apistreet(self.user_question())
+        return geolo
+
+    def search_article(self):
+
+        """methode to search article of wikipedia
+        return json with all information"""
+        geolo = self.search_geolo()
+        if geolo:
+            article = self.apimanager.apiwiki(geolo.latitude, geolo.longitude)
+            return article
+        else: 
+            print("Je suis désolé, je n'ai rien trouvé mon grand.")
         

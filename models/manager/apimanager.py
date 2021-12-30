@@ -22,38 +22,79 @@ class ApiManager:
         return (Coord): latitude and longitude"""
 
         res = requests.get("http://open.mapquestapi.com/nominatim/v1/search.php?q={}&key=F3SzABt6KmK3CyhsZPFa96ucMZ3APqGT&format=json".format(pars))
-        read = json.loads(res.text)
-        first_choice = read[0]
-        place = Coord(first_choice['lat'], first_choice['lon'])
-            
-        return place
+        if res.status_code == 200:
+            read = res.json()
+            if read:
+                first_choice = read[0]
+                place = Coord(first_choice['lat'], first_choice['lon'])
+                return place
+            else:
+                return False
 
-    def search_name(self, lat, lon):
         
-        """methode to search name of article in API wikipedia
-        Args:
+        else: 
+            err = f"OpenStreetMap API : '{res.status_code}' error occurred"
+            print(err)
+            
+        
+
+    def apiwiki(self, lat, lon):
+
+        """Method to search information with Api of Wikipedia 
+        Args: 
         lat (int) : latitude
         lon (int) : longitude
-        return (str) : name of article in wikipedia"""
+        return (dict) """
 
-        res = requests.get("https://en.wikipedia.org/w/api.php?action=query&format=json&list=geosearch&gscoord={}%7C {}&gsradius=10000&gslimit=100".format(lat,lon))
-        read = json.loads(res.text)
-        title = (((read['query'])["geosearch"])[0])['title']
-        return title
+        url = "http://fr.wikipedia.org/w/api.php?"
 
-    def search_art(self, title):
-
-        """methode to search resume of article in API wikipedia
-        Args: 
-        title (str) : longitude
-        return (str) : resume of article from wikipedia"""
-
-        res = requests.get("https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles={}".format(title))
-        read = json.loads(res.text)
-        search = ((read["query"])["pages"]).values()
-        for element in search: 
-            resume = element['extract']
-        return resume
-
+        parameters = { 
+                        "action": "query",
+                        "prop": "extracts|info",
+                        "inprop": "url",
+                        "explaintext": True,
+                        "exsentences": 2,
+                        "exlimit": 1,
+                        "generator": "geosearch",
+                        "ggsradius": 10000,
+                        "ggscoord": f"{lat}|{lon}",
+                        "format": "json"
+        }
         
-        
+        res = requests.get("http://fr.wikipedia.org/w/api.php?", params=parameters)
+
+        if res.status_code == 200:
+            content = res.json()
+            if content.get("query").get("pages") != "":
+                places = content.get("query").get("pages")
+                places_list= []
+                for place in places:
+                    places_list.append(
+                            (
+                                places.get(place).get("index"),
+                                places.get(place).get("pageid"),
+                            )
+                        )
+                place_selected = min(places_list)
+                pageid_selected = str(place_selected[1])
+
+                article =  {
+                        "title": content.get("query")
+                        .get("pages")
+                        .get(pageid_selected)
+                        .get("title", ""),
+                        "extract": content.get("query")
+                        .get("pages")
+                        .get(pageid_selected)
+                        .get("extract", ""),
+                        "fullurl": content.get("query")
+                        .get("pages")
+                        .get(pageid_selected)
+                        .get("fullurl", ""),
+                    }
+                return json.dumps(article)
+        else: 
+            err = f"Mediawiki API : '{res.status_code}' error occurred"
+            print(err)
+
+

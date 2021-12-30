@@ -8,4 +8,4 @@ from controller.control import Control
 if __name__ == '__main__':
 
     run = Control()
-    run.ask_api()
+    run.search_article()
