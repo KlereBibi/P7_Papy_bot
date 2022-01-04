@@ -83,6 +83,7 @@ class ApiManager:
                         .get("pages")
                         .get(pageid_selected)
                         .get("title", ""),
+                        "papybot": "Mes petites cellules grises se souviennent que: ",
                         "extract": content.get("query")
                         .get("pages")
                         .get(pageid_selected)
@@ -92,6 +93,7 @@ class ApiManager:
                         .get(pageid_selected)
                         .get("fullurl", ""),
                     }
+               
                 return json.dumps(article)
         else: 
             err = f"Mediawiki API : '{res.status_code}' error occurred"

@@ -9,6 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name ="description" content="Trouver l'adresser d'un lieu accompagné d'une histoire de GrandPy">
     <link rel="stylesheet" href="style.css">
+    <script src="java.js"></script>
+    
     
 </head>
 <body id="back">
@@ -25,11 +27,11 @@
         <div class="papy"><p>Pour en savoir d'avantage, tu peux te rendre sur le site  de <a href="https://fr.wikipedia.org/wiki/"> Wikipedia</a></p></div>
         <div class="user">Merci ! T'es un chouette type ! </div>
     </div>
-    <form action="">
+    <form method="get" action="index.html">
         <fieldset>
             <label for="adresse">Pose une question sur un lieu à GrandPy: <br></label>
             <input type="text" id="adresse" size="50" minlength="5"><br>
-            <input type="submit">
+            <input type="submit" onclick="clic(event)">
             <input type="reset">
         </fieldset>
     </form>

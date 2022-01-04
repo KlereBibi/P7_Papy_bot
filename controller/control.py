@@ -42,6 +42,7 @@ class Control:
         geolo = self.search_geolo()
         if geolo:
             article = self.apimanager.apiwiki(geolo.latitude, geolo.longitude)
+            print(article)
             return article
         else: 
             print("Je suis désolé, je n'ai rien trouvé mon grand.")

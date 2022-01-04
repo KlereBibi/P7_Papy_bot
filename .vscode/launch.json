@@ -4,11 +4,18 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+        
+    {
+        "name": "Lancer index.html",
+        "file": "C:/Users/klere/Documents/open_classroom/P7/script/view/index.html",
+        "request": "launch",
+        "type": "chrome",
+    },
         {
             "name": "main",
             "type": "python",
             "request": "launch",
-            "program": "c:/Users/klere/Documents/open classroom/P7/script/main.py",
+            "program": "c:/Users/klere/Documents/open_classroom/P7/script/main.py",
             "console": "integratedTerminal"
         },
         {
