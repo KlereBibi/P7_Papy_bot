@@ -6,46 +6,52 @@
 
 h2 { font-family:'Trebuchet MS', 'Lucida Sans Unicode', cursive; }
 
+
 #description { font-family:cursive; }
 
 #conteneur{     display: flex;
                 flex-direction: column;
+                border: 1px solid black;
                 margin: auto;
                 width: 50%;
+                height: 50%;
                 margin-bottom: 5%;
+                text-align: center;
 }
 
 .user{  display: flex;
-        justify-content:flex-start;
-        text-align:center;
+        justify-content:space-around;
         background-color:rgb(164, 223, 164);
         font-family:Georgia, 'Times New Roman', Times, serif;
         width: 70%;
-        margin-bottom: 1%;
-        margin: 1%;
+        margin-top: 3%;
+        margin-left: 2%;
+        border-radius: 10px;
 }
 
 .papy{  display: flex;
+        justify-content: space-around;
         align-self: flex-end;
-        text-align: center;
         font-style: italic;
-        justify-content: end;
         background-color:rgb(182, 179, 179);
         font-family: Georgia, 'Times New Roman', Times, serif;
         width: 70%;
-        margin-bottom: 1%;
-        margin: 1%;
+        margin-right: 2%;
+        margin-top: 3%;
+        border-radius: 10px;
 }
 
 .picture {      display: flex;
                 align-self: flex-end;
                 margin: end;
-                margin: 1%;
-                margin-bottom: 1%;
+                margin-right: 2%;
+                margin-top: 3%;
 }
 
 fieldset {      background-color: cornflowerblue;
                 margin: auto;
+                margin-top: 7%;
+                margin-bottom: 5%;
                 width: 30%;
                 text-align: center;
                 font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

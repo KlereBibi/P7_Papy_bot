@@ -31,7 +31,7 @@ class ApiManager:
             else:
                 return False
 
-        
+
         else: 
             err = f"OpenStreetMap API : '{res.status_code}' error occurred"
             print(err)
@@ -61,7 +61,7 @@ class ApiManager:
                         "format": "json"
         }
         
-        res = requests.get("http://fr.wikipedia.org/w/api.php?", params=parameters)
+        res = requests.get(url, params=parameters)
 
         if res.status_code == 200:
             content = res.json()

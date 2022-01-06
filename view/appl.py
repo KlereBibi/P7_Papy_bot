@@ -20,7 +20,7 @@ def home():
         var = request.form['query_user']
         words = intpars.parser(var)
         return words
-    
+
 @app.errorhandler(404)
 def page_not_found(error):
     return 'errors/404.html'

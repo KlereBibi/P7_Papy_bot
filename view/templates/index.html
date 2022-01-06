@@ -9,8 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name ="description" content="Trouver l'adresser d'un lieu accompagné d'une histoire de GrandPy">
     <link rel="stylesheet" href="style.css">
-    <script src="java.js"></script>
-    
     
 </head>
 <body id="back">
@@ -25,16 +23,18 @@
         <div class="picture"><img src = "settings/tour_eiffel.jpg" alt="endroit" height="150"></div>
         <div class="papy"> <p>Savais tu que la tour Eiffel est une tour de fer puddlé de 324 mètres de hauteur? C'est incroyable.</p></div>
         <div class="papy"><p>Pour en savoir d'avantage, tu peux te rendre sur le site  de <a href="https://fr.wikipedia.org/wiki/"> Wikipedia</a></p></div>
-        <div class="user"><p>Merci ! T'es un chouette type !</p> </div>
+        <div class="user"><p>Tu es vraiment un chouette type !</p></div>
+        
+        <form method="get">
+            <fieldset>
+                <label for="adresse">Pose une question sur un lieu à GrandPy: <br></label>
+                <input type="text" id="adresse" size="50" minlength="5"><br>
+                <input type="submit" onclick="clic(event)">
+                <input type="reset">
+            </fieldset>
+        </form>
     </div>
-    <form method="get" action="index.html">
-        <fieldset>
-            <label for="adresse">Pose une question sur un lieu à GrandPy: <br></label>
-            <input type="text" id="adresse" size="50" minlength="5"><br>
-            <input type="submit" onclick="clic(event)">
-            <input type="reset">
-        </fieldset>
-    </form>
+    
 <footer>
     <p id="papy">
         Vous aimez mon PaPy Bot? <br>
@@ -44,5 +44,6 @@
         <a href="https://www.linkedin.com/in/claire-biedermann-b21671166/">Claire Biedermann</a>, toujours là pour vous divertir
     </p>
 </footer>
+<script src="main.js"></script>
 </body>
 </html>
