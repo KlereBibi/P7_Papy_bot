@@ -11,4 +11,4 @@ app=Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def home():
-    return "hello word!"
+    return render_template("index.html")
