@@ -25,13 +25,26 @@
         <div class="papy"><p>Pour en savoir d'avantage, tu peux te rendre sur le site  de <a href="https://fr.wikipedia.org/wiki/"> Wikipedia</a></p></div>
         <div class="user"><p>Tu es vraiment un chouette type !</p></div>
         
-        <form id="form" method="get">
+        <form id="user-text-form">
             <fieldset>
-                Pose une question sur un lieu à GrandPy: 
-                <input type="text" id="adresse" name="fname" size="50" minlength="5">
-                <input type="submit" value="Submit">
+                <p>
+                    <label for="userTexte"> Pose une question sur un lieu à GrandPy: </label>
+                    <input type="text" id="userTexte" name="userTexte" size="50" minlength="5" placeholder="Ecrivez votre question ici">
+                    <input type="submit" value="Envoyer">
+                </p>
             </fieldset>
         </form>
+        <script>
+            /* let myForm = document.querySelector("#user-text-form");
+
+            myForm.addEventListener("submit", function(event) {
+                event.preventDefault();
+                fetch("/ajax", {
+                    method: "POST", 
+                    body: new FormData(myForm)}
+                    ); 
+            })*/
+        </script>
     </div>
     
 <footer>

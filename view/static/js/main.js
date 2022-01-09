@@ -1,8 +1,10 @@
 "use strict"
 
-document.getElementById("form").addEventListener("submit", getValue);
-
-function getValue() {
-    let a = document.getElementById("adresse").value;
-    alert(a);
-}
+let myForm = document.querySelector("#user-text-form");
+myForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+    fetch("/ajax", {
+        method: "POST", 
+        body: new FormData(myForm),
+    })
+});
