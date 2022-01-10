@@ -8,7 +8,7 @@ import os
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
 
-from settings.setting import STOPWORDS
+from models.entities.settings.setting import STOPWORDS
 
 class InputParser:
     
