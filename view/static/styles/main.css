@@ -49,10 +49,11 @@ h2 { font-family:'Trebuchet MS', 'Lucida Sans Unicode', cursive; }
 }
 
 fieldset {      background-color: cornflowerblue;
-                margin: auto;
                 margin-top: 7%;
                 margin-bottom: 5%;
-                width: 30%;
+                margin-left: 15%;
+                margin-right: 15%; 
+                width: auto;
                 text-align: center;
                 font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

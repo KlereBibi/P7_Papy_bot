@@ -93,8 +93,7 @@ class ApiManager:
                         .get(pageid_selected)
                         .get("fullurl", ""),
                     }
-               
-                return json.dumps(article)
+                return article
         else: 
             err = f"Mediawiki API : '{res.status_code}' error occurred"
             print(err)
