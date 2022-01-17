@@ -40,6 +40,8 @@ class Control:
         geolo = self.search_geolo(text_user)
         if geolo:
             article = self.apimanager.apiwiki(geolo.latitude, geolo.longitude)
+            article['coord'] = (geolo.latitude, geolo.longitude)
+            print(article)
             return article
         else: 
             print("Je suis désolé, je n'ai rien trouvé mon grand.")

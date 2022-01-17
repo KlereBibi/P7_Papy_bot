@@ -19,7 +19,6 @@ def ajax():
     user_text = request.form["userText"]
     mycontroller = Control()
     article = mycontroller.search_article(user_text) 
-    print(article)
     return jsonify(article)
     
     

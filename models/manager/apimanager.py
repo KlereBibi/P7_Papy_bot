@@ -77,7 +77,7 @@ class ApiManager:
                         )
                 place_selected = min(places_list)
                 pageid_selected = str(place_selected[1])
-
+                print(pageid_selected)
                 article =  {
                         "title": content.get("query")
                         .get("pages")

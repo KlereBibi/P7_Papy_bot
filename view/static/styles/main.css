@@ -30,8 +30,8 @@ h2 { font-family:'Trebuchet MS', 'Lucida Sans Unicode', cursive; }
 }
 
 .papy{  display: flex;
-        justify-content: space-around;
-        align-self: flex-end;
+        justify-content:space-around;
+        margin-left: auto;
         font-style: italic;
         background-color:rgb(182, 179, 179);
         font-family: Georgia, 'Times New Roman', Times, serif;
@@ -41,8 +41,9 @@ h2 { font-family:'Trebuchet MS', 'Lucida Sans Unicode', cursive; }
         border-radius: 10px;
 }
 
-.picture {      display: flex;
+.map {      display: flex;
                 align-self: flex-end;
+                height: 480px;
                 margin: end;
                 margin-right: 2%;
                 margin-top: 3%;

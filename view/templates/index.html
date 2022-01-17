@@ -9,8 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name ="description" content="Trouver l'adresser d'un lieu accompagné d'une histoire de GrandPy">
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/main.css') }}">
-    
 </head>
+<link rel = "stylesheet" href = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+<script src = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+<script src="{{ url_for('static',filename='js/main.js') }}"></script>
 <body id="back">
     <div id="presentation">
         <h2>GrandPy Bot </h2> 
@@ -18,13 +20,9 @@
         <img src="{{ url_for('static',filename='pictures/robot.jpg') }}" alt="logo PapyBot" height="100">
     </div>
     <div id="conteneur">
-        <div class="user"><p>Bonjour grand Papy Bot, je cherche la Tour Eiffel. Peux tu m'aider?</p></div>
-        <div class="papy"><p>Biensûr, la tour Eiffel se trouve sur les champs de Mars au 5, avenue Anatole-France à Paris.</p></div>
-        <div class="picture"><img src = "{{ url_for('static',filename='pictures/tour_eiffel.jpg') }}" alt="endroit" height="150"></div>
-        <div class="papy"> <p>Savais tu que la tour Eiffel est une tour de fer puddlé de 324 mètres de hauteur? C'est incroyable.</p></div>
-        <div class="papy"><p>Pour en savoir d'avantage, tu peux te rendre sur le site  de <a href="https://fr.wikipedia.org/wiki/"> Wikipedia</a></p></div>
-        <div class="user"><p>Tu es vraiment un chouette type !</p></div>
+        <div id="answer">
         
+        </div>
         <form id="user-text-form">
             <fieldset>
                 <p>
@@ -34,6 +32,7 @@
                 </p>
             </fieldset>
         </form>
+        
     </div>
     
 <footer>
@@ -45,6 +44,9 @@
         <a href="https://www.linkedin.com/in/claire-biedermann-b21671166/">Claire Biedermann</a>, toujours là pour vous divertir
     </p>
 </footer>
-<script src="{{ url_for('static',filename='js/main.js') }}"></script>
+
+<!-- <script src="{{ url_for('static',filename='js/main.js') }}"></script> -->
+
+
 </body>
 </html>
