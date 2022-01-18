@@ -9,10 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name ="description" content="Trouver l'adresser d'un lieu accompagné d'une histoire de GrandPy">
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/main.css') }}">
+    <link rel = "stylesheet" href = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <script src = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 </head>
-<link rel = "stylesheet" href = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-<script src = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-<script src="{{ url_for('static',filename='js/main.js') }}"></script>
+
 <body id="back">
     <div id="presentation">
         <h2>GrandPy Bot </h2> 
@@ -21,7 +21,6 @@
     </div>
     <div id="conteneur">
         <div id="answer">
-        
         </div>
         <form id="user-text-form">
             <fieldset>
@@ -45,7 +44,7 @@
     </p>
 </footer>
 
-<!-- <script src="{{ url_for('static',filename='js/main.js') }}"></script> -->
+<script src="{{ url_for('static',filename='js/main.js') }}"></script>
 
 
 </body>

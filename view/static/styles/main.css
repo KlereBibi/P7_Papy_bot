@@ -41,12 +41,11 @@ h2 { font-family:'Trebuchet MS', 'Lucida Sans Unicode', cursive; }
         border-radius: 10px;
 }
 
-.map {      display: flex;
+.map {          display: flex;
                 align-self: flex-end;
-                height: 480px;
-                margin: end;
-                margin-right: 2%;
                 margin-top: 3%;
+                height: 300px;
+                    
 }
 
 fieldset {      background-color: cornflowerblue;

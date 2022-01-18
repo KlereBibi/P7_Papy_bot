@@ -17,26 +17,28 @@ function addBodyElement(element, nameClass, Text) {
     message.className = nameClass;
     message.innerHTML = Text;
     reference.appendChild(message)
+}
 
+function divformap (){
+    let reference = document.getElementById('answer');
+    let message = document.createElement('div');
+    let randomId = Math.random()
+    let uniqueId = randomId.toString();
+    message.className = 'map'
+    message.id = uniqueId;
+    reference.appendChild(message)
+    return uniqueId
 }
 function searchmap(latitude, longitude) {
-    // Création d'options de carte 
-    let reference = document.getElementById('answer');
-    let newPicture = document.createElement('div');
-    newPicture.className = 'map';
+    let id = divformap()
     let mapOptions = { 
         center: [latitude, longitude], 
         zoom: 10 
         } 
-        // Création d'un objet de carte 
-    let map = new L.map('map', mapOptions); 
-        // Création d'un objet Layer 
+    let map = new L.map(id, mapOptions); 
     let layer = new L.TileLayer(' http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png' ); 
-        // Ajout d'une couche à la carte 
     map.addLayer(layer); 
     let marker = new L.marker([latitude, longitude]).addTo(map);
-    reference.appendChild(newPicture)
-
 }
 
 myForm.addEventListener("submit", function(event) {
@@ -47,9 +49,11 @@ myForm.addEventListener("submit", function(event) {
     postFormData("/ajax", new FormData(myForm))
     .then (response => {
         let answer = response['papybot'] + response['extract'];
+        let latitude = Number(response['latitude'])
+        let longitude = Number(response['longitude'])
         addBodyElement('div', 'papy', answer);
-        let reference = document.getElementById('answer');
-        searchmap(51.958, 9.141);
+        searchmap(latitude, longitude);
+        
         
         // Ici on veut mettre en place notre visuel
         // D'abord je cree la premiere div qui contient la reponse de grandpybot qui est dans response['papybot'] et response['extract']]^
