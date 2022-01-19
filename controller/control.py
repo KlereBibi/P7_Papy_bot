@@ -42,8 +42,5 @@ class Control:
             article = self.apimanager.apiwiki(geolo.latitude, geolo.longitude)
             article['latitude'] = (geolo.latitude)
             article['longitude'] = (geolo.longitude)
-            print(article)
             return article
-        else: 
-            print("Je suis désolé, je n'ai rien trouvé mon grand.")
         
