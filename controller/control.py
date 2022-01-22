@@ -42,5 +42,9 @@ class Control:
             article = self.apimanager.apiwiki(geolo.latitude, geolo.longitude)
             article['latitude'] = (geolo.latitude)
             article['longitude'] = (geolo.longitude)
+            article['result'] = ('finded')
             return article
-        
+
+        else: 
+            no_article = {'papysorry' : "je suis désolée poussin, mes cellules grises n'ont pas rien trouver à ce sujet."}
+            return no_article

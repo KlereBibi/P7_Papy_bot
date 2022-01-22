@@ -20,7 +20,9 @@
         <img src="{{ url_for('static',filename='picture/robot.jpg') }}" alt="logo PapyBot" height="100">
     </div>
     <div id="conteneur">
-        <div id="answer">
+        <div id="answer"></div>
+        <div class="hidden" id="spinner">
+            <div class="lds-ellipsis"><div></div><div></div><div></div></div>
         </div>
         <form id="user-text-form">
             <fieldset>

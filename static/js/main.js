@@ -30,7 +30,6 @@ function divformap (){
     return uniqueId
 }
 function addBodyPicture(latitude, longitude) { 
-    // Ici je cree une div de de classe map et je vais utiliser ca en tant qu'element
     let id = divformap()
     let mapOptions = { 
         center: [latitude, longitude], 
@@ -42,17 +41,36 @@ function addBodyPicture(latitude, longitude) {
     let marker = new L.marker([latitude, longitude]).addTo(map);
 }
 
+//J'écoute l'évènement de l'envoie du formulaire
 myForm.addEventListener("submit", function(event) {
+    //je stop le rechargement de ma page
     event.preventDefault();
-    let userQuestion = document.getElementById('userText').value; //creer l'objet question utilisateur 
-    addBodyElement('div', 'user', userQuestion); //et l'inserer
+    //je récupère le formulaire
+    let userQuestion = document.getElementById('userText').value; 
+    //J'ajoute la question dans le DOM
+    addBodyElement('div', 'user', userQuestion);
+    //J'affiche mon spinner en supprimant la class 
+    document.getElementById('spinner').removeAttribute("class");
+    //j'envoie mon formulaire
     postFormData("/ajax", new FormData(myForm))
-    .then (response => {
-        let answer = response['papybot'] + response['extract']; // D'abord je cree la premiere div qui contient la reponse de grandpybot qui est dans response['papybot'] et response['extract']]^
-        let latitude = Number(response['latitude'])
-        let longitude = Number(response['longitude'])
-        addBodyElement('div', 'papy', answer);
-        addBodyPicture(latitude, longitude);//on passe cet element aux fonctions JS de creation de map
-    })
-    document.getElementById("user-text-form").reset(); // je vide mon formulaire  
+    //Je traite la réponse 
+   .then (response => {
+        if (response['result'] === 'finded') {
+            setTimeout(function(){
+                document.getElementById("user-text-form").reset()
+                document.getElementById('spinner').className = "hidden";
+                let answer = response['papybot'] + response['extract']; 
+                let latitude = Number(response['latitude'])
+                let longitude = Number(response['longitude'])
+                addBodyElement('div', 'papy', answer);
+                addBodyPicture(latitude, longitude) }, 1500)
+                ; }
+        else {
+            setTimeout(function(){
+                document.getElementById("user-text-form").reset();
+                document.getElementById('spinner').className = "hidden";
+                let excuse = response['papysorry']
+                addBodyElement('div', 'papy', excuse);
+                }, 1500)}
+    }) 
 });
