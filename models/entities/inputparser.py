@@ -38,6 +38,5 @@ class InputParser:
                                          .decode('ascii'))
                     
         imp_words = '+'.join(searched_word)
-        
         return imp_words
     
