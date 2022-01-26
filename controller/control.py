@@ -48,3 +48,4 @@ class Control:
         else: 
             no_article = {'papysorry' : "je suis désolée poussin, mes cellules grises n'ont pas rien trouver à ce sujet."}
             return no_article
+    

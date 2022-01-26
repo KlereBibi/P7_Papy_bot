@@ -7,13 +7,12 @@ import os
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
 
-from entities.coord import Coord
+from models.entities.coord import Coord
 
 class ApiManager:
-
     """class to manage all API"""
     
-    def apistreet(self, pars):
+    def apistreet(self, pars=None):
 
         """method to search with API openmapqest latitude and longitude
         args :
@@ -28,13 +27,10 @@ class ApiManager:
                 first_choice = read[0]
                 place = Coord(first_choice['lat'], first_choice['lon'])
                 return place
-            else:
+            else: 
                 return False
-
-
         else: 
-            err = f"OpenStreetMap API : '{res.status_code}' error occurred"
-            print(err)
+            return False
             
         
 
