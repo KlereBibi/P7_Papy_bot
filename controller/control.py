@@ -40,10 +40,12 @@ class Control:
         geolo = self.search_geolo(text_user)
         if geolo:
             article = self.apimanager.apiwiki(geolo.latitude, geolo.longitude)
+            
             if article:
                 article['latitude'] = (geolo.latitude)
                 article['longitude'] = (geolo.longitude)
                 article['result'] = ('finded')
+                
                 return article
             else:
                 no_article = {'papysorry' : "je suis désolée poussin, mes cellules grises n'ont pas rien trouver à ce sujet."}
