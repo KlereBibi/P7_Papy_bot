@@ -33,17 +33,21 @@ class Control:
         geolo = self.apimanager.apistreet(self.user_question(text_user))
         return geolo
 
-    def search_article(self,text_user):
+    def search_article(self,text_user=None):
 
         """methode to search article of wikipedia
         return json with all information"""
         geolo = self.search_geolo(text_user)
         if geolo:
             article = self.apimanager.apiwiki(geolo.latitude, geolo.longitude)
-            article['latitude'] = (geolo.latitude)
-            article['longitude'] = (geolo.longitude)
-            article['result'] = ('finded')
-            return article
+            if article:
+                article['latitude'] = (geolo.latitude)
+                article['longitude'] = (geolo.longitude)
+                article['result'] = ('finded')
+                return article
+            else:
+                no_article = {'papysorry' : "je suis désolée poussin, mes cellules grises n'ont pas rien trouver à ce sujet."}
+                return no_article
 
         else: 
             no_article = {'papysorry' : "je suis désolée poussin, mes cellules grises n'ont pas rien trouver à ce sujet."}

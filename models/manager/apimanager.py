@@ -31,10 +31,8 @@ class ApiManager:
                 return False
         else: 
             return False
-            
-        
 
-    def apiwiki(self, lat, lon):
+    def apiwiki(self, lat=None, lon=None):
 
         """Method to search information with Api of Wikipedia 
         Args: 
@@ -61,37 +59,42 @@ class ApiManager:
 
         if res.status_code == 200:
             content = res.json()
-            if content.get("query").get("pages") != "":
-                places = content.get("query").get("pages")
-                places_list= []
-                for place in places:
-                    places_list.append(
-                            (
-                                places.get(place).get("index"),
-                                places.get(place).get("pageid"),
+            if content :
+                if content.get("query").get("pages") != "":
+                    places = content.get("query").get("pages")
+                    places_list= []
+                    for place in places:
+                        places_list.append(
+                                (
+                                    places.get(place).get("index"),
+                                    places.get(place).get("pageid"),
+                                )
                             )
-                        )
-                place_selected = min(places_list)
-                pageid_selected = str(place_selected[1])
-                print(pageid_selected)
-                article =  {
-                        "title": content.get("query")
-                        .get("pages")
-                        .get(pageid_selected)
-                        .get("title", ""),
-                        "papybot": "Mes petites cellules grises se souviennent que: ",
-                        "extract": content.get("query")
-                        .get("pages")
-                        .get(pageid_selected)
-                        .get("extract", ""),
-                        "fullurl": content.get("query")
-                        .get("pages")
-                        .get(pageid_selected)
-                        .get("fullurl", ""),
-                    }
-                return article
+                    place_selected = min(places_list)
+                    pageid_selected = str(place_selected[1])
+                    
+                    article =  {
+                            "title": content.get("query")
+                            .get("pages")
+                            .get(pageid_selected)
+                            .get("title", ""),
+                            "papybot": "Mes petites cellules grises se souviennent que: ",
+                            "extract": content.get("query")
+                            .get("pages")
+                            .get(pageid_selected)
+                            .get("extract", ""),
+                            "fullurl": content.get("query")
+                            .get("pages")
+                            .get(pageid_selected)
+                            .get("fullurl", ""),
+                        }
+                    return article
+                else:
+                    return False
+            else: 
+                return False
         else: 
-            err = f"Mediawiki API : '{res.status_code}' error occurred"
-            print(err)
+            return False
+            
 
 

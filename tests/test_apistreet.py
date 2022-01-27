@@ -8,8 +8,23 @@ from models.manager.apimanager import ApiManager
 import requests
 from models.entities.coord import Coord
 
+def test_apistreet_statut_false(mocker):
+    return_val = requests.Response()
+    mocker.patch('requests.get', return_value = return_val)
+    return_val.status_code = 400
+    sut = ApiManager()
+    assert  sut.apistreet(None) is False
 
-def test_apistreet(mocker):
+def test_apistreet_statut_valide_rep_false(mocker):
+    return_val = requests.Response()
+    return_val.status_code = 200
+    def json_func(): {}
+    return_val.json = json_func
+    mocker.patch('requests.get', return_value = return_val)
+    sut = ApiManager()
+    assert  sut.apistreet(None) is False
+
+def test_apistreet_statut_valide_rep_valid(mocker):
     return_val = requests.Response()
     return_val.status_code = 200
     def json_func():
@@ -51,8 +66,8 @@ def test_apistreet(mocker):
                 'class': 'place', 'type': 'locality', 'importance': 0.1625, 'icon': 'http://ip-10-98-162-50.mq-us-east-1.ec2.aolcloud.net/nominatim/images/mapicons/poi_place_village.p.20.png'}, {'place_id': '58488345',\
                 'licence': 'Data © OpenStreetMap contributors, ODbL 1.0. https://www.openstreetmap.org/copyright', 'osm_type': 'node', 'osm_id': '4699978288', 'boundingbox': ['43.709693', '43.709793', '-0.1274465', '-0.1273465'],\
                 'lat': '43.709743', 'lon': '-0.1273965', 'display_name': 'Claire, Lelin-Lapujolle, Mirande, Gers, Occitanie, France métropolitaine, 32400, France', 'class': 'place', 'type': 'isolated_dwelling', 'importance': 0.1625}
+    
     return_val.json = json_func
-
     mocker.patch('requests.get', return_value = return_val)
     sut = ApiManager()
     expected_value = Coord('41.5986442', '-90.3434618')
@@ -60,19 +75,3 @@ def test_apistreet(mocker):
     assert  f_value.latitude == expected_value.latitude
     assert  f_value.longitude == expected_value.longitude
     
-def test_apistreet_statut_valdie_rep_false(mocker):
-    return_val = requests.Response()
-    return_val.status_code = 200
-    def json_func(): {}
-    return_val.json = json_func
-    mocker.patch('requests.get', return_value = return_val)
-    sut = ApiManager()
-    assert  sut.apistreet(None) is False
-
-def test_apistreet_statut_false(mocker):
-    return_val = requests.Response()
-    mocker.patch('requests.get', return_value = return_val)
-    return_val.status_code = 400
-    sut = ApiManager()
-    assert  sut.apistreet(None) is False
-

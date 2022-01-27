@@ -4,7 +4,6 @@ import os
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
 
-from models.entities.settings.setting import STOPWORDS
 from models.entities.inputparser import InputParser
 
 def test_return_str_parser():
