@@ -31,7 +31,7 @@
         "request": "launch",
         "module": "flask",
         "env": {
-            "FLASK_APP": "C:/Users/klere/Documents/open_classroom/P7/script/view/app.py",
+            "FLASK_APP": "C:/Users/klere/Documents/open_classroom/P7/script/main.py",
             "FLASK_ENV": "development",
             "FLASK_DEBUG": "0"
         },

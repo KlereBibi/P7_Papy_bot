@@ -4,9 +4,9 @@ import os
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
 
-from front import app
+from app import create_app
 
 if __name__ == '__main__':
-    app.run()
+    config = {"TESTING": False}
+    create_app(config)
 
-    
