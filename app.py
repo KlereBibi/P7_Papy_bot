@@ -26,30 +26,3 @@ def create_app(config):
 
     return app
 
-app = create_app({"TESTING": False})
-
-if __name__ == '__main__':
-    app.run()
-
-
-    
-
-
-
-
-""" 
-app=Flask(__name__)
-
-@app.route('/', methods=['GET'])
-def home():
-    return render_template("index.html")
-
-@app.route('/ajax', methods=['POST'])
-def ajax():
-    user_text = request.form["userText"]
-    mycontroller = Control()
-    article = mycontroller.search_article(user_text) 
-    return jsonify(article)
-
-     """
-    

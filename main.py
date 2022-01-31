@@ -6,7 +6,8 @@ sys.path.append(os.path.dirname(SCRIPT_DIR))
 
 from app import create_app
 
+app = create_app({"TESTING": False})
+
 if __name__ == '__main__':
-    config = {"TESTING": False}
-    create_app(config)
+    app.run()
 

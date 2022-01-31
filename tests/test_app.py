@@ -9,6 +9,7 @@ sys.path.append(os.path.dirname(SCRIPT_DIR))
 
 from app import create_app
 from flask import render_template
+import json
 
 @pytest.fixture
 def client():
@@ -17,16 +18,23 @@ def client():
         yield client
 
 def test_should_status_code_ok_get(client):
+    
     response = client.get('/')
     assert response.status_code == 200
-
-def test_should_status_code_ok_get_data(mocker, client):
-    response = client.get('/')
     data = response.data.decode()
     assert data == render_template('index.html')
 
+ 
+def test_should_status_code_ok_post(client, mocker):
 
-def test_should_status_code_ok_post(client):
-    username = 'testUser'
-    password = 'testPassword'
-    response = client.post('/login', data={'username' : username, 'password' : password})
+    return_val = {'username' : 'testUser'}
+    mocker.patch('flask.Request.form', return_value = return_val)
+    mocker.patch('controller.control.Control.search_article', return_value = {"name": "Claire", "competence" : "perfect"})
+    excepted_value = {"name": "Claire", "competence" : "perfect"}
+    response = client.post('/ajax', data=excepted_value)
+
+    assert response.status_code == 200
+
+    data = response.data.decode()
+    result = json.loads(data)
+    assert result == excepted_value
