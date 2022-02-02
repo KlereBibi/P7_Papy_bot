@@ -70,8 +70,9 @@ def test_apistreet_statut_valide_rep_valid(mocker):
     return_val.json = json_func
     mocker.patch('requests.get', return_value = return_val)
     sut = ApiManager()
-    expected_value = Coord('41.5986442', '-90.3434618')
+    geolo = Coord('41.5986442', '-90.3434618', 'Le Claire, Scott County, Iowa, United States of America')
     f_value = sut.apistreet(None)
-    assert  f_value.latitude == expected_value.latitude
-    assert  f_value.longitude == expected_value.longitude
+    assert  f_value.latitude == geolo.latitude
+    
+
     

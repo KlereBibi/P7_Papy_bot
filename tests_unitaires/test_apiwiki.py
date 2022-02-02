@@ -101,7 +101,7 @@ def test_apiwiki_statut_valide_rep_valid(mocker):
     mocker.patch('requests.get', return_value = return_val)
     sut = ApiManager()
     expected_value = {'title': 'Le Claire', 
-    'papybot': 'Mes petites cellules grises se souviennent que: ',
+    'papybot': 'Mes petites cellules grises se souviennent de bien des choses. ',
      'extract': 'Le Claire est une ville située dans le comté de Scott, dans l’État de l’Iowa, aux États-Unis. Lors du recensement de 2010, sa population s’élevait à 3 765 habitants.', 'fullurl': 'https://fr.wikipedia.org/wiki/Le_Claire'}
     value = sut.apiwiki(None, None)
     assert value == expected_value

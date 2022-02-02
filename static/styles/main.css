@@ -21,31 +21,52 @@ h2 { font-family:'Trebuchet MS', 'Lucida Sans Unicode', cursive; }
 
 .user{  display: flex;
         justify-content:space-around;
-        background-color:rgb(164, 223, 164);
-        font-family:Georgia, 'Times New Roman', Times, serif;
+        background-color:rgb(115, 210, 241);
+        font-family:sans-serif;
         width: 70%;
         margin-top: 3%;
         margin-left: 2%;
+        padding-bottom: 1%;
+        padding-top: 1%;
+        padding-right: 1%;
+        padding-left: 1%;
         border-radius: 10px;
 }
 
 .papy{  display: flex;
         justify-content:space-around;
         margin-left: auto;
-        font-style: italic;
-        background-color:rgb(182, 179, 179);
-        font-family: Georgia, 'Times New Roman', Times, serif;
+        background-color:rgb(233, 252, 130);
+        font-family: sans-serif;
         width: 70%;
         margin-right: 2%;
         margin-top: 3%;
         border-radius: 10px;
+        padding-bottom: 1%;
+        padding-top: 1%;
+        padding-right: 1%;
+        padding-left: 1%;
 }
 
+.papy1{  display: flex;
+  justify-content:space-around;
+  margin-left: auto;
+  font-style: italic;
+  background-color:rgb(233, 252, 130);
+  font-family: sans-serif;
+  width: 70%;
+  margin-right: 2%;
+  margin-top: 3%;
+  border-radius: 10px;
+  padding-bottom: 1%;
+  padding-top: 1%;
+  padding-right: 1%;
+  padding-left: 1%;
+}
 .map {          display: flex;
                 align-self: flex-end;
                 margin-top: 3%;
                 height: 300px;
-                    
 }
 
 fieldset {      background-color: cornflowerblue;

@@ -45,7 +45,8 @@ class Control:
                 article['latitude'] = (geolo.latitude)
                 article['longitude'] = (geolo.longitude)
                 article['result'] = ('finded')
-                
+                article['papybot_adress'] = ("Voici ce que j'ai pu te dénicher")
+                article['adress'] = (geolo.adress)
                 return article
             else:
                 no_article = {'papysorry' : "je suis désolée poussin, mes cellules grises n'ont pas rien trouver à ce sujet."}

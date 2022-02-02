@@ -25,9 +25,10 @@ def test_fonctionnal_application():
 
     response = driver.find_element(By.CLASS_NAME, "papy").text
 
-    expected_value = "Mes petites cellules grises se souviennent que: Le Claire est une ville située dans le comté de Scott, dans l’État de l’Iowa, aux États-Unis. Lors du recensement de 2010, sa population s’élevait à 3 765 habitants."
+    expected_value = "Le Claire, Scott County, Iowa, United States of America"
 
     assert response == expected_value
 
     # Fermer la fenêtre du navigateur
+    driver.close()
     

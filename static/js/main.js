@@ -59,11 +59,18 @@ myForm.addEventListener("submit", function(event) {
             setTimeout(function(){
                 document.getElementById("user-text-form").reset()
                 document.getElementById('spinner').className = "hidden";
-                let answer = response['papybot'] + response['extract']; 
+                let answer_papybot = response['papybot_adress']
+                let adresse = response['adress']
+                let remember_papybot = response['papybot'] 
+                let answer = response['extract']; 
                 let latitude = Number(response['latitude'])
                 let longitude = Number(response['longitude'])
+                addBodyElement('div', 'papy1', answer_papybot);
+                addBodyElement('div', 'papy', adresse);
+                addBodyPicture(latitude, longitude);
+                addBodyElement('div', 'papy1', remember_papybot);
                 addBodyElement('div', 'papy', answer);
-                addBodyPicture(latitude, longitude) }, 1500)
+                 }, 1500)
                 ; }
         else {
             setTimeout(function(){

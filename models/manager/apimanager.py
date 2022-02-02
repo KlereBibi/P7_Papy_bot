@@ -25,7 +25,7 @@ class ApiManager:
             read = res.json()
             if read:
                 first_choice = read[0]
-                place = Coord(first_choice['lat'], first_choice['lon'])
+                place = Coord(first_choice['lat'], first_choice['lon'], first_choice['display_name'])
                 return place
             else: 
                 return False
@@ -78,7 +78,7 @@ class ApiManager:
                             .get("pages")
                             .get(pageid_selected)
                             .get("title", ""),
-                            "papybot": "Mes petites cellules grises se souviennent que: ",
+                            "papybot": 'Mes petites cellules grises se souviennent de bien des choses. ',
                             "extract": content.get("query")
                             .get("pages")
                             .get(pageid_selected)
