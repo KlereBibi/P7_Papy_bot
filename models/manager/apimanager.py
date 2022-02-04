@@ -1,22 +1,16 @@
 """module to search the user question """
 
 import requests
-import json
-import sys
-import os
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-sys.path.append(os.path.dirname(SCRIPT_DIR))
-
 from models.entities.coord import Coord
 
 class ApiManager:
     """class to manage all API"""
-    
+
     def apistreet(self, pars=None):
 
         """method to search with API openmapqest latitude and longitude
         args :
-        city(str) : name of city 
+        city(str) : name of city
         states(str) : name of states
         return (Coord): latitude and longitude"""
 
@@ -25,24 +19,26 @@ class ApiManager:
             read = res.json()
             if read:
                 first_choice = read[0]
-                place = Coord(first_choice['lat'], first_choice['lon'], first_choice['display_name'])
+                place = Coord(first_choice['lat'],
+                                first_choice['lon'],
+                                first_choice['display_name'])
                 return place
-            else: 
+            else:
                 return False
-        else: 
+        else:
             return False
 
     def apiwiki(self, lat=None, lon=None):
 
-        """Method to search information with Api of Wikipedia 
-        Args: 
+        """Method to search information with Api of Wikipedia
+        Args:
         lat (int) : latitude
         lon (int) : longitude
         return (dict) """
 
         url = "http://fr.wikipedia.org/w/api.php?"
 
-        parameters = { 
+        parameters = {
                         "action": "query",
                         "prop": "extracts|info",
                         "inprop": "url",
@@ -54,13 +50,17 @@ class ApiManager:
                         "ggscoord": f"{lat}|{lon}",
                         "format": "json"
         }
-        
+
         res = requests.get(url, params=parameters)
 
         if res.status_code == 200:
             content = res.json()
             if content :
-                if content.get("query").get("pages") != "":
+                try:
+                    content.get("query").get("pages")
+                except AttributeError:
+                    return False
+                if  content.get("query").get("pages") != "":
                     places = content.get("query").get("pages")
                     places_list= []
                     for place in places:
@@ -72,7 +72,7 @@ class ApiManager:
                             )
                     place_selected = min(places_list)
                     pageid_selected = str(place_selected[1])
-                    
+
                     article =  {
                             "title": content.get("query")
                             .get("pages")
@@ -91,10 +91,7 @@ class ApiManager:
                     return article
                 else:
                     return False
-            else: 
+            else:
                 return False
-        else: 
+        else:
             return False
-            
-
-

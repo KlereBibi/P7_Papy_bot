@@ -23,10 +23,10 @@ def test_apiwiki_statut_valide_rep_false(mocker):
     sut = ApiManager()
     assert  sut.apiwiki(None, None) is False
 
-def test_apiwiki_statut_valide_rep_false(mocker):
+def test_apiwiki_statut_valide_rep_false_empty(mocker):
     return_val = requests.Response()
     return_val.status_code = 200
-    def json_func(): {'query': {'pages': {}}}
+    def json_func(): {'pouet'}
     return_val.json = json_func
     mocker.patch('requests.get', return_value = return_val)
     sut = ApiManager()

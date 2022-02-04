@@ -1,42 +1,42 @@
 """module to parse the user question """
 
+from nltk.tokenize import word_tokenize
+from nltk.corpus import stopwords
 import unicodedata
 import string
-import sys
-import os
-
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-sys.path.append(os.path.dirname(SCRIPT_DIR))
 
 from models.entities.settings.setting import STOPWORDS
 
 class InputParser:
-    
+
     """class to parse the user question"""
-    
+
     def parser(self, user_quest):
-        
+
         """
-        Args(str) : user question 
-        return(str) : word separate, 
-                        without accent, 
-                        without stopword, 
+        Args(str) : user question
+        return(str) : word separate,
+                        without accent,
+                        without stopword,
                         without ponctuation
         """
-        
-        translator = str.maketrans('', '', string.punctuation)
-        no_ponct = user_quest.translate(translator)
-        split_quest = no_ponct.split(' ')
-        
+
+        punct = string.punctuation
+        for x in punct:
+            user_quest = user_quest.replace(x, " ")
+        user_quest = user_quest.lower()
+        stops = set(stopwords.words('french'))
+        user_quest = word_tokenize(user_quest)
         searched_word = []
-        
-        for element in split_quest:
-                if element not in STOPWORDS: 
-                    searched_word.append(unicodedata.normalize
-                                         ('NFKD', element.lower())
-                                         .encode('ASCII', 'ignore')
-                                         .decode('ascii'))
-                    
-        imp_words = '+'.join(searched_word)
-        return imp_words
+
+        for element in user_quest:
+            if element not in STOPWORDS and element not in stops:
+                elmt = (unicodedata.normalize('NFKD', element)
+                        .encode('ascii', 'ignore')
+                        .decode('ascii'))
+                if elmt not in STOPWORDS and element not in stops:
+                    searched_word.append(elmt)
+
+        pars = '+'.join(searched_word)
+        return pars
     

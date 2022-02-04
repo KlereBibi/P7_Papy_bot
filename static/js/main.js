@@ -77,7 +77,9 @@ myForm.addEventListener("submit", function(event) {
                 document.getElementById("user-text-form").reset();
                 document.getElementById('spinner').className = "hidden";
                 let excuse = response['papysorry']
+                let precision = response['papyprecision']
                 addBodyElement('div', 'papy', excuse);
+                addBodyElement('div', 'papy', precision);
                 }, 1500)}
     }) 
 });
