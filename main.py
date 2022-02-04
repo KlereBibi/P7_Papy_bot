@@ -27,6 +27,7 @@ def create_app(config):
 
     return app
 
+APP = create_app({"TESTING": False})
 if __name__ == '__main__':
-    app = create_app({"TESTING": False})
-    app.run()
+    
+    APP.run()
