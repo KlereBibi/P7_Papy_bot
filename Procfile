@@ -1,0 +1,1 @@
+web: gunicorn "main:app.run()" --log-file -
