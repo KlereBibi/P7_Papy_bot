@@ -3,3 +3,5 @@ __pycache__
 .coveragerc
 htmlcov
 tests
+.vscode
+.pytest_cache
