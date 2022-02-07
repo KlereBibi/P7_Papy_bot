@@ -36,10 +36,14 @@ function addBodyPicture(latitude, longitude) {
         zoom: 10 
         } 
     let map = new L.map(id, mapOptions); 
-    let layer = new L.TileLayer(' https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png' ); 
-    map.addLayer(layer); 
-    let marker = new L.marker([latitude, longitude]).addTo(map);
-}
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+    /* let layer = new L.TileLayer(' https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png' ); 
+    map.addLayer(layer);  */
+    // let marker = new L.marker([latitude, longitude]).addTo(map);}
+    L.marker([mapOptions]).addTo(map);}
+
 
 //J'écoute l'évènement de l'envoie du formulaire
 myForm.addEventListener("submit", function(event) {
