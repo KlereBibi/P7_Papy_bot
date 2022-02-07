@@ -1,1 +1,1 @@
-web: gunicorn "main:app.run(port=os.environ['PORT'])" 
+web: gunicorn "app:create_app()" 

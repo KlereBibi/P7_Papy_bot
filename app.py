@@ -4,7 +4,7 @@ from flask import Flask, render_template, request, jsonify
 
 from controller.control import Control
 
-def create_app(config):
+def create_app(config={"TESTING": False}):
 
     """this method allows you to create a web page.
     return : HTML page
