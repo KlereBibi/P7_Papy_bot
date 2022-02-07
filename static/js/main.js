@@ -41,8 +41,8 @@ function addBodyPicture(latitude, longitude) {
     }).addTo(map);
     /* let layer = new L.TileLayer(' https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png' ); 
     map.addLayer(layer);  */
-    // let marker = new L.marker([latitude, longitude]).addTo(map);}
-    L.marker([mapOptions]).addTo(map);}
+    let marker = new L.marker([latitude, longitude]).addTo(map);}
+    
 
 
 //J'écoute l'évènement de l'envoie du formulaire
