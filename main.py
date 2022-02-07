@@ -4,5 +4,4 @@ from app import create_app
 
 if __name__ == '__main__':
     app = create_app({"TESTING": False})
-    port = int(os.getenv('PORT'))
-    app.run(port=port)
+    app.run()
