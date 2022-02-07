@@ -20,7 +20,7 @@ class InputParser:
                         without stopword,
                         without ponctuation
         """
-
+        
         punct = string.punctuation
         for x in punct:
             user_quest = user_quest.replace(x, " ")
