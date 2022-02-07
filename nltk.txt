@@ -1,4 +1,0 @@
-tokenize
-corpus
-word_tokenize
-stopwords
