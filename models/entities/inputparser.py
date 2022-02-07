@@ -1,7 +1,5 @@
 """module to parse the user question """
 
-from nltk.tokenize import word_tokenize
-from nltk.corpus import stopwords
 import unicodedata
 import string
 
@@ -25,17 +23,16 @@ class InputParser:
         for x in punct:
             user_quest = user_quest.replace(x, " ")
         user_quest = user_quest.lower()
-        stops = set(stopwords.words('french'))
-        user_quest = word_tokenize(user_quest)
+        stops = user_quest.split()
+        
         searched_word = []
 
-        for element in user_quest:
-            if element not in STOPWORDS and element not in stops:
+        for element in stops:
+            if element not in STOPWORDS:
                 elmt = (unicodedata.normalize('NFKD', element)
                         .encode('ascii', 'ignore')
                         .decode('ascii'))
-                if elmt not in STOPWORDS and element not in stops:
-                    searched_word.append(elmt)
+                searched_word.append(elmt)
 
         pars = '+'.join(searched_word)
         return pars
