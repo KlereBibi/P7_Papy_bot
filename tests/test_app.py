@@ -18,7 +18,6 @@ def client():
         yield client
 
 def test_should_status_code_ok_get(client):
-    
     response = client.get('/')
     assert response.status_code == 200
     data = response.data.decode()
