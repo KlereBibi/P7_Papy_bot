@@ -36,7 +36,7 @@ function addBodyPicture(latitude, longitude) {
         zoom: 10 
         } 
     let map = new L.map(id, mapOptions); 
-    let layer = new L.TileLayer(' http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png' ); 
+    let layer = new L.TileLayer(' https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png' ); 
     map.addLayer(layer); 
     let marker = new L.marker([latitude, longitude]).addTo(map);
 }
