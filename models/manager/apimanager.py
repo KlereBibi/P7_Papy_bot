@@ -30,6 +30,7 @@ class ApiManager:
 
     def apiwiki(self, lat=None, lon=None):
 
+
         """Method to search information with Api of Wikipedia
         Args:
         lat (int) : latitude
@@ -55,43 +56,41 @@ class ApiManager:
 
         if res.status_code == 200:
             content = res.json()
-            if content :
-                try:
-                    content.get("query").get("pages")
-                except AttributeError:
-                    return False
-                if  content.get("query").get("pages") != "":
-                    places = content.get("query").get("pages")
-                    places_list= []
-                    for place in places:
-                        places_list.append(
+            
+            try:
+                content.get("query").get("pages")
+            except AttributeError:
+                return False
+            places = content.get("query").get("pages") 
+            places_list= []
+            for place in places:
+                places_list.append(
                                 (
                                     places.get(place).get("index"),
                                     places.get(place).get("pageid"),
                                 )
                             )
-                    place_selected = min(places_list)
-                    pageid_selected = str(place_selected[1])
-
-                    article =  {
-                            "title": content.get("query")
-                            .get("pages")
-                            .get(pageid_selected)
-                            .get("title", ""),
-                            "papybot": 'Mes petites cellules grises se souviennent de bien des choses. ',
-                            "extract": content.get("query")
-                            .get("pages")
-                            .get(pageid_selected)
-                            .get("extract", ""),
-                            "fullurl": content.get("query")
-                            .get("pages")
-                            .get(pageid_selected)
-                            .get("fullurl", ""),
-                        }
-                    return article
-                else:
-                    return False
-            else:
+            if not places_list: 
                 return False
+            place_selected = min(places_list)
+            pageid_selected = str(place_selected[1])
+
+            article =  {
+                    "title": content.get("query")
+                    .get("pages")
+                    .get(pageid_selected)
+                    .get("title", ""),
+                    "papybot": 'Mes petites cellules grises se souviennent de bien des choses. ',
+                    "extract": content.get("query")
+                    .get("pages")
+                    .get(pageid_selected)
+                    .get("extract", ""),
+                    "fullurl": content.get("query")
+                    .get("pages")
+                    .get(pageid_selected)
+                    .get("fullurl", ""),
+                }
+            return article
+            
         else:
             return False

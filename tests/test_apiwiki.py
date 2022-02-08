@@ -14,23 +14,39 @@ def test_apiwiki_statut_false(mocker):
     sut = ApiManager()
     assert  sut.apiwiki(None, None) is False
 
-def test_apiwiki_statut_valide_rep_false(mocker):
+def test_apiwiki_statut_valide_rep_empty(mocker):
     return_val = requests.Response()
     return_val.status_code = 200
-    def json_func(): {}
+    excepted_value = {}
+    def json_func(): 
+        return excepted_value
     return_val.json = json_func
     mocker.patch('requests.get', return_value = return_val)
     sut = ApiManager()
     assert  sut.apiwiki(None, None) is False
 
-def test_apiwiki_statut_valide_rep_false_empty(mocker):
+def test_apiwiki_statut_valide_rep_false(mocker):
     return_val = requests.Response()
     return_val.status_code = 200
-    def json_func(): {'pouet'}
+    excepted_value = {'title' : 'pouet'}
+    def json_func(): 
+        return excepted_value
     return_val.json = json_func
     mocker.patch('requests.get', return_value = return_val)
     sut = ApiManager()
     assert  sut.apiwiki(None, None) is False
+
+def test_apiwiki_statut_valide_rep_no_answer(mocker):
+    return_val = requests.Response()
+    return_val.status_code = 200
+    excepted_value = {'continue': {'excontinue': 1, 'continue': '||info'}, 'query': {'pages': ''}}
+    def json_func(): 
+        return excepted_value
+    return_val.json = json_func
+    mocker.patch('requests.get', return_value = return_val)
+    sut = ApiManager()
+    assert  sut.apiwiki(None, None) is False
+    
 
 def test_apiwiki_statut_valide_rep_valid(mocker):
     return_val = requests.Response()
