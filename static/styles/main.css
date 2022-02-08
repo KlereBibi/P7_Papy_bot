@@ -69,7 +69,8 @@ h2 { font-family:'Trebuchet MS', 'Lucida Sans Unicode', cursive; }
                 height: 300px;
 }
 
-fieldset {      background-color: cornflowerblue;
+fieldset {      
+                background-color: cornflowerblue;
                 margin-top: 7%;
                 margin-bottom: 5%;
                 margin-left: 15%;
