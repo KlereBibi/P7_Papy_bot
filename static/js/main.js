@@ -41,19 +41,12 @@ function addBodyPicture(latitude, longitude) {
     let marker = new L.marker([latitude, longitude]).addTo(map);
 }
 
-//J'écoute l'évènement de l'envoie du formulaire
 myForm.addEventListener("submit", function(event) {
-    //je stop le rechargement de ma page
     event.preventDefault();
-    //je récupère le formulaire
     let userQuestion = document.getElementById('userText').value; 
-    //J'ajoute la question dans le DOM
     addBodyElement('div', 'user', userQuestion);
-    //J'affiche mon spinner en supprimant la class 
     document.getElementById('spinner').removeAttribute("class");
-    //j'envoie mon formulaire
     postFormData("/ajax", new FormData(myForm))
-    //Je traite la réponse 
    .then (response => {
         if (response['result'] === 'finded') {
             setTimeout(function(){

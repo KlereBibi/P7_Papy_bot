@@ -1,4 +1,7 @@
 [run]
-omit = tests/*
+source = .
+omit = 
+        tests/*
+        main.py
 
 
