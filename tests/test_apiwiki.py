@@ -1,3 +1,5 @@
+""" this module is the test of methode apiwiki of class apimanager """
+
 import sys
 import os
 
@@ -39,7 +41,8 @@ def test_apiwiki_statut_valide_rep_false(mocker):
 def test_apiwiki_statut_valide_rep_no_answer(mocker):
     return_val = requests.Response()
     return_val.status_code = 200
-    excepted_value = {'continue': {'excontinue': 1, 'continue': '||info'}, 'query': {'pages': ''}}
+    excepted_value = {'continue': {'excontinue': 1, 
+                        'continue': '||info'}, 'query': {'pages': ''}}
     def json_func(): 
         return excepted_value
     return_val.json = json_func

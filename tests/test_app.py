@@ -1,3 +1,4 @@
+""" this module is the test of method in module app.py """
 
 import pytest
 
@@ -28,7 +29,8 @@ def test_should_status_code_ok_post(client, mocker):
 
     return_val = {'username' : 'testUser'}
     mocker.patch('flask.Request.form', return_value = return_val)
-    mocker.patch('controller.control.Control.search_article', return_value = {"name": "Claire", "competence" : "perfect"})
+    mocker.patch('controller.control.Control.search_article', 
+                return_value = {"name": "Claire", "competence" : "perfect"})
     excepted_value = {"name": "Claire", "competence" : "perfect"}
     response = client.post('/ajax', data=excepted_value)
 

@@ -1,3 +1,5 @@
+""" this module is the test of methode apistreet of class apimanager """
+
 import sys
 import os
 
@@ -32,13 +34,15 @@ def test_apistreet_statut_valide_rep_valid(mocker):
                 ODbL 1.0. https://www.openstreetmap.org/copyright', 'osm_type': 'relation',\
                 'osm_id': '129010', 'boundingbox': ['41.580633', '41.613911', '-90.405849',\
                 '-90.339528'], 'lat': '41.5986442', 'lon': '-90.3434618',\
-                'display_name': 'Le Claire, Scott County, Iowa, United States of America',\
-                'class': 'boundary', 'type': 'administrative', 'importance': 0.20167999693412,\
+                'display_name': 'Le Claire, Scott County, Iowa, United States of America',
+                'class': 'boundary', 'type': 'administrative', 
+                'importance': 0.20167999693412,
                 'icon': 'http://ip-10-98-162-50.mq-us-east-1.ec2.aolcloud.net/nominatim/images/mapicons/poi_boundary_administrative.p.20.png'},\
                 {'place_id': '187528167', 'licence': 'Data © OpenStreetMap contributors, ODbL 1.0. https://www.openstreetmap.org/copyright',\
                 'osm_type': 'relation', 'osm_id': '2736400', \
                 'boundingbox': ['49.36402', '49.4192126', '0.2134797', '0.2328111'], \
-                'lat': '49.3952271', 'lon': '0.218505', 'display_name': 'La Claire, Lisieux, Calvados, Normandie, France métropolitaine, 14603, France',\
+                'lat': '49.3952271', 'lon': '0.218505', 
+                'display_name': 'La Claire, Lisieux, Calvados, Normandie, France métropolitaine, 14603, France',\
                 'class': 'waterway', 'type': 'river', 'importance': 0.1875},\
                 {'place_id': '80991804', 'licence': 'Data © OpenStreetMap contributors, ODbL 1.0. https://www.openstreetmap.org/copyright',\
                 'osm_type': 'way', 'osm_id': '34720584', 'boundingbox': ['49.7495168', '49.7517768', '4.8851524', '4.8887235'], \

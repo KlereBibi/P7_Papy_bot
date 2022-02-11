@@ -1,3 +1,5 @@
+""" this module is the test of methode parser in class InputParser """
+
 import sys
 import os
 
