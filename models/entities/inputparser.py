@@ -32,9 +32,9 @@ class InputParser:
                 elmt = (unicodedata.normalize('NFKD', element)
                         .encode('ascii', 'ignore')
                         .decode('ascii'))
-                searched_word.append(elmt)
+                if elmt not in STOPWORDS:
+                    searched_word.append(elmt)
 
         pars = '+'.join(searched_word)
-        print(pars)
         return pars
     

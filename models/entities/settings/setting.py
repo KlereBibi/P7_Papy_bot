@@ -72,8 +72,8 @@ STOPWORDS = ['rapidement', 'malheureusement', 'cherche', 'adresse',
                 'vous-mêmes', 'vu', 'vé', 'vôtre', 'vôtres', 'w', 'x', 'y', 'z', 'zut', 'à', 'â', 'çaaux', 
                 'eus', 'serons', 'étions', 'fûtes', 'eussiez', 'soient', 'étée', 'ayants', 'fussions', 'ayez',
                 'eusses', 'eûmes', 'soyez', 'serez', 'fus', 'ayante', 'étants', 'furent', 'étées', 'fût', 'aurai',
-                'étantes', 'auriez', 'étés', 'étante', 'serais', 'eusse', 'seras', 'fusses', 'serai', 'ayons', 'sois',
-                'eûtes', 'aurions', 'seriez', 'fussiez', 'eut', 'aient', 'aurons', 'eussent', 'eussions', 'aurais',
+                'étantes', 'espere', 'espère', 'auriez', 'étés', 'étante', 'serais', 'eusse', 'seras', 'fusses', 'serai', 'ayons', 'sois',
+                'eûtes', 'plait', 'plait', 'aurions', 'seriez', 'fussiez', 'eut', 'aient', 'aurons', 'eussent', 'eussions', 'aurais',
                 'soyons', 'eurent', 'fussent', 'sommes', 'avions', 'avez', 'eues', 'ayantes', 'étiez', 'fut', 'aurez',
                 'serions', 'fûmes', 'aies', 'eue', 'aviez', 'êtes', 'eût', 'fusse', 'auras']
 
