@@ -18,13 +18,13 @@ class InputParser:
                         without stopword,
                         without ponctuation
         """
-        
+
         punct = string.punctuation
         for x in punct:
             user_quest = user_quest.replace(x, " ")
         user_quest = user_quest.lower()
         stops = user_quest.split()
-        
+
         searched_word = []
 
         for element in stops:
@@ -35,5 +35,6 @@ class InputParser:
                 searched_word.append(elmt)
 
         pars = '+'.join(searched_word)
+        print(pars)
         return pars
     

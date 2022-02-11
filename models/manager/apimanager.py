@@ -4,6 +4,7 @@ import requests
 from models.entities.coord import Coord
 
 class ApiManager:
+    
     """class to manage all API"""
 
     def apistreet(self, pars=None):
@@ -56,12 +57,12 @@ class ApiManager:
 
         if res.status_code == 200:
             content = res.json()
-            
+
             try:
                 content.get("query").get("pages")
             except AttributeError:
                 return False
-            places = content.get("query").get("pages") 
+            places = content.get("query").get("pages")
             places_list= []
             for place in places:
                 places_list.append(
@@ -70,7 +71,7 @@ class ApiManager:
                                     places.get(place).get("pageid"),
                                 )
                             )
-            if not places_list: 
+            if not places_list:
                 return False
             place_selected = min(places_list)
             pageid_selected = str(place_selected[1])
@@ -91,6 +92,5 @@ class ApiManager:
                     .get("fullurl", ""),
                 }
             return article
-            
         else:
             return False
