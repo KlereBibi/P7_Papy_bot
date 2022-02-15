@@ -13,7 +13,7 @@ def test_search_article_geolo_false(mocker):
     mocker.patch('controller.control.Control.user_question', return_value = False)
     mocker.patch('controller.control.Control.search_geolo', return_value = False)
     sut = Control()
-    expected_value = {'papysorry' : "Je suis désolée poussin, mes cellules grises n'ont rien trouver à ce sujet.",
+    expected_value = {'papysorry' : "Je suis désolée poussin, mes cellules grises n'ont rien trouvé à ce sujet.",
                 'papyprecision' : "Peut-être pourrais-tu reformuler ta demande pour aider ma vieille mémoire?"}
     rep = sut.search_article(None)
     assert rep == expected_value
@@ -24,7 +24,7 @@ def test_search_article_geolo_valid_wiki_false(mocker):
     mocker.patch('controller.control.Control.search_geolo', return_value = simul_coord)
     mocker.patch('models.manager.apimanager.ApiManager.apiwiki', return_value = False)
     sut = Control()
-    expected_value = {'papysorry' : "Je suis désolée poussin, mes cellules grises n'ont rien trouver à ce sujet.",
+    expected_value = {'papysorry' : "Je suis désolée poussin, mes cellules grises n'ont rien trouvé à ce sujet.",
                 'papyprecision' : "Peut-être pourrais-tu reformuler ta demande pour aider ma vieille mémoire?"}
     rep = sut.search_article(None)
     assert rep == expected_value

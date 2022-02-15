@@ -35,7 +35,7 @@ class Control:
         """methode with a papybot text
         return dict with answer of papybot who no found the place"""
 
-        answer = {'papysorry' : "Je suis désolée poussin, mes cellules grises n'ont rien trouver à ce sujet.",
+        answer = {'papysorry' : "Je suis désolée poussin, mes cellules grises n'ont rien trouvé à ce sujet.",
                 'papyprecision' : "Peut-être pourrais-tu reformuler ta demande pour aider ma vieille mémoire?"}
         return answer
 
